@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alunos | Sistema Acadêmico</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- navbar-expand-lg mantém o menu aberto em telas grandes e recolhe em telas menores. -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-academic">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">🎓 Portal Acadêmico</a
+        ><button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="alunos.html">Alunos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cursos.html">Cursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="disciplinas.html">Disciplinas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="solicitacoes.html">Solicitações</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="page-header text-white py-5">
+      <div class="container">
+        <p class="eyebrow">Módulo 2</p>
+        <h1 class="display-6">Gestão de estudantes</h1>
+        <p class="mb-0 opacity-75">Consulte a situação acadêmica dos alunos.</p>
+      </div>
+    </header>
+    <main class="container py-4">
+      <div class="content-card p-4">
+        <div class="row g-3 align-items-end mb-4">
+          <div class="col-md-7">
+            <label class="form-label" for="buscaAluno">Buscar aluno</label
+            ><input
+              id="buscaAluno"
+              class="form-control"
+              data-table-filter="#tabelaAlunos"
+              placeholder="Nome, matrícula ou curso"
+            />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label" for="filtroStatus">Status</label
+            ><select id="filtroStatus" class="form-select">
+              <option>Todos os status</option>
+              <option>Ativo</option>
+              <option>Concluído</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <a class="btn btn-primary w-100" href="cadastro.html"
+              >+ Novo aluno</a
+            >
+          </div>
+        </div>
+        <!-- O wrapper table-responsive é responsável pela rolagem em telas pequenas. -->
+        <div class="table-responsive">
+          <table id="tabelaAlunos" class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>Aluno</th>
+                <th>Matrícula</th>
+                <th>Curso</th>
+                <th>Período</th>
+                <th>Status</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="avatar">MC</span>Mariana Costa</td>
+                <td>20240128</td>
+                <td>Administração</td>
+                <td>4º</td>
+                <td><span class="badge badge-soft-success">Ativo</span></td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalAluno"
+                  >
+                    Detalhes
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="avatar">LA</span>Lucas Almeida</td>
+                <td>20230217</td>
+                <td>Engenharia de Software</td>
+                <td>6º</td>
+                <td><span class="badge badge-soft-success">Ativo</span></td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalAluno"
+                  >
+                    Detalhes
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="avatar">JS</span>João Santos</td>
+                <td>20210103</td>
+                <td>Direito</td>
+                <td>8º</td>
+                <td><span class="badge badge-soft-info">Concluído</span></td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalAluno"
+                  >
+                    Detalhes
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="avatar">AR</span>Ana Ribeiro</td>
+                <td>20240344</td>
+                <td>Design Gráfico</td>
+                <td>2º</td>
+                <td><span class="badge badge-soft-success">Ativo</span></td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalAluno"
+                  >
+                    Detalhes
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <!-- data-bs-target="#modalAluno" conecta todos os botões ao modal cujo id é modalAluno. -->
+    <div
+      class="modal fade"
+      id="modalAluno"
+      tabindex="-1"
+      aria-labelledby="modalAlunoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="modalAlunoLabel">
+              Resumo do estudante
+            </h2>
+            <button
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Aluno:</strong> Mariana Costa</p>
+            <p><strong>Curso:</strong> Administração</p>
+            <p><strong>Coeficiente:</strong> 8,7</p>
+            <p class="mb-0">
+              <strong>E-mail:</strong> mariana.costa@exemplo.edu.br
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="py-4 mt-4">
+      <div class="container">
+        © <span data-current-year></span> Portal Acadêmico · Dados fictícios
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
